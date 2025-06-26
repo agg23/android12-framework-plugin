@@ -2,12 +2,19 @@ plugins {
     `kotlin-dsl`
 }
 
+// Add resources to the plugin JAR
+tasks.jar {
+    from(fileTree("libs") {
+        include("android.jar")
+    })
+}
+
 repositories {
     mavenCentral()
 }
 
 group = "com.github.agg23"
-version = "1.0.0"
+version = "1.0.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
