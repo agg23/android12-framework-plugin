@@ -14,6 +14,8 @@ build/
 *.iws
 out/
 
+local.properties
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
