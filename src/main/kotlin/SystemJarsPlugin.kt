@@ -1,5 +1,6 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPlugin
 import java.io.File
 import java.io.InputStream
 
@@ -21,12 +22,9 @@ class SystemJarsPlugin : Plugin<Project> {
                 inputStream.copyTo(out)
             }
             
-            project.afterEvaluate {
-                project.tasks.withType(org.gradle.api.tasks.compile.JavaCompile::class.java).configureEach {
-                    options.compilerArgs.add("-Xbootclasspath/p:${tempFile.absolutePath}")
-                }
-                project.logger.info("Prepended custom android.jar to JavaCompile bootclasspath")
-            }
+            // Add to compileOnly configuration
+            project.dependencies.add("compileOnly", project.files(tempFile))
+            project.logger.info("Added android.jar to compileOnly configuration from temporary file")
         } else {
             project.logger.error("android.jar not found in plugin resources. Plugin will not be applied.")
         }
