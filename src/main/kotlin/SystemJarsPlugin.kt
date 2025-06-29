@@ -13,7 +13,7 @@ class SystemJarsPlugin : Plugin<Project> {
         val inputStream: InputStream? = this::class.java.classLoader.getResourceAsStream("android.jar")
         if (inputStream != null) {
             // Create temporary directory
-            val tempDir = File(project.buildDir, "system-jars")
+            val tempDir = File(project.gradle.gradleUserHomeDir, "system-jars")
             tempDir.mkdirs()
             
             // Create temporary file

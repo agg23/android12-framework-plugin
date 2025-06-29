@@ -13,6 +13,7 @@ build/
 *.ipr
 *.iws
 out/
+local.properties
 
 # Ignore OS-specific files
 .DS_Store
