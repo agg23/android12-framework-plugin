@@ -29,6 +29,6 @@ pluginManagement {
 
 plugins {
     // NOTE: This plugin must be preceeded by either the Kotlin or Java plugin
-    id("im.agg.android12-system-jars") version "1.0.2"
+    id("im.agg.android12-system-jars") version "1.0.4"
 }
 ```
